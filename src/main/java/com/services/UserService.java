@@ -1,4 +1,4 @@
-package com.example.demo.services;
+package com.services;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import com.example.demo.entities.User;
-import com.example.demo.repositories.UserRepository;
+import com.entities.User;
+import com.repositories.UserRepository;
 
 @Service
 public class UserService {
