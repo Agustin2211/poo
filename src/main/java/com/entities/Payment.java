@@ -15,20 +15,16 @@ public class Payment {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private long id;
-
     @Column(name = "createdAt", nullable = false)
     private Date createdAt;
-
     @OneToOne
     @JoinColumn(name = "id", updatable = false, nullable = false)
     private Booking booking;
-
     @Column(name = "card", nullable = false)
     private String card;
-
     @Column(name = "cardNumber", nullable = false)
     private String cardNumber;
-
+    
     public long getId() {
         return id;
     }

@@ -12,22 +12,16 @@ public class Room {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private long id;
-
     @Column(name = "name", nullable = true, length = 50)
     private String name;
-
     @Column(name = "price", nullable = true, length = 10)
     private float price;
-
     @Column(name = "occupancy", nullable = false, length = 10)
     private int occupancy;
-
     @Column(name = "availabilty", nullable = false, length = 1)
     private int availability;
-
     @Column(name = "facilities", nullable = true, length = 50)
     private String facilities;
-
     
     public long getId() {
         return id;

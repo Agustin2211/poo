@@ -15,14 +15,12 @@ public class Cancellation {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private long id;
-
     @Column(name = "createdAt", nullable = false)
     private Date createdAt;
-
     @OneToOne
     @JoinColumn(name = "id", updatable = false, nullable = false)
     private Booking booking;
-
+    
     public long getId() {
         return id;
     }
