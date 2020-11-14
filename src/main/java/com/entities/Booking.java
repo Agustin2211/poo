@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 //import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 //import java.util.ArrayList;
@@ -27,13 +28,9 @@ public class Booking {
     private Date checkOut;
     @Column(name = "createdAt", nullable = false)
     private Date createdAt;
-    //solo puede reservar una habitacion?   
-    @OneToOne
-    @JoinColumn(name = "id", updatable = false, nullable = false)
-    private Room room;
-        //si se puede reservar mas de una habitacion
-   /* @OneToMany(mappedBy="Booking" )
-    private List<Room> listRoom;*/
+   @ManyToOne
+   @JoinColumn(name = "id", updatable = false, nullable = false)
+    private Room room;      
     @Column(name = "breakfastIncluded", nullable = false)
     private boolean breakfastIncluded;
     @Column(name = "parking", nullable = false)
@@ -43,6 +40,7 @@ public class Booking {
     @Column(name = "cost", nullable = true)
     private float cost;
     
+    //agregar @Version
     public Booking(){
             super();
           //  listRoom=new ArrayList<Room>();
