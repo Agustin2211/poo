@@ -1,4 +1,4 @@
-package com.entities;
+package com.poo.tpfinal.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,12 +13,12 @@ import java.util.Date;
 public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
+    @Column(name = "idPayment")
     private long id;
     @Column(name = "createdAt", nullable = false)
     private Date createdAt;
     @OneToOne
-    @JoinColumn(name = "id", updatable = false, nullable = false)
+    @JoinColumn(name = "idBooking", updatable = false, nullable = false)
     private Booking booking;
     @Column(name = "card", nullable = false)
     private String card;

@@ -1,4 +1,6 @@
-package com.entities;
+package com.poo.tpfinal.entities;
+
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,20 +9,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-//import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-//import java.util.ArrayList;
-import java.util.Date;
-//import java.util.List;
 
 @Entity
 public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
+    @Column(name = "idBooking")
     private long id;
     @OneToOne
-    @JoinColumn(name = "id", updatable = false, nullable = false)
+    @JoinColumn(name = "idUser", updatable = false, nullable = false)
     private User guest;
     @Column(name = "checkIn", nullable = false)
     private Date checkIn;
@@ -29,7 +27,7 @@ public class Booking {
     @Column(name = "createdAt", nullable = false)
     private Date createdAt;
    @ManyToOne
-   @JoinColumn(name = "id", updatable = false, nullable = false)
+   @JoinColumn(name = "idRoom", updatable = false, nullable = false)
     private Room room;      
     @Column(name = "breakfastIncluded", nullable = false)
     private boolean breakfastIncluded;

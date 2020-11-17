@@ -1,4 +1,4 @@
-package com.controllers;
+package com.poo.tpfinal.controllers;
 
 import java.util.List;
 
@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.entities.User;
-import com.services.UserService;
+import com.poo.tpfinal.entities.User;
+import com.poo.tpfinal.services.UserService;
 
 
 @RestController

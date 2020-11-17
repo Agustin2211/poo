@@ -1,4 +1,4 @@
-package com.entities;
+package com.poo.tpfinal.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,7 +11,7 @@ import java.util.Date;
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id")
+	@Column(name = "idUser")
 	private long id;
 	@Column(name = "email", nullable = false, length = 150)
 	private String email;

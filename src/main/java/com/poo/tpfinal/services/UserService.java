@@ -1,4 +1,4 @@
-package com.services;
+package com.poo.tpfinal.services;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import com.entities.User;
-import com.repositories.UserRepository;
+import com.poo.tpfinal.entities.User;
+import com.poo.tpfinal.repositories.UserRepository;
 
 @Service
 public class UserService {
@@ -46,8 +46,8 @@ public class UserService {
 		userRepository.deleteById(id);
 	}
 	
-	public User findUserByUsername(String username) {
-		return userRepository.findUserByUsername(username);
-	}
+/*	public User findUserByUsername(String username) {
+		//return userRepository.findUserByUsername(username);
+	}*/
 	
 }
