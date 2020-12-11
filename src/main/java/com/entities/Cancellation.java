@@ -1,4 +1,4 @@
-package com.entities;
+package com.poo.tpfinal.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -6,27 +6,46 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.Version;
+import javax.validation.constraints.NotNull;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.JoinColumn;
 import java.util.Date;
 
 @Entity
 public class Cancellation {
+    @Version
+    private int version;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private long id;
+    @NotNull
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idCancelation")
+    private long idCancelation;
+    @NotNull
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     @Column(name = "createdAt", nullable = false)
     private Date createdAt;
+    @NotNull
     @OneToOne
-    @JoinColumn(name = "id", updatable = false, nullable = false)
+    @JoinColumn(name = "idBooking", updatable = false, nullable = false)
     private Booking booking;
+
+    public void setVersionNum(int version){
+		this.version=version;
+	}
+	
+	public int getVersionNum(){
+		 return version; 
+		}
     
     public long getId() {
-        return id;
+        return idCancelation;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setId(long idCancelation) {
+        this.idCancelation = idCancelation;
     }
 
     public Date getCreatedAt() {
@@ -46,7 +65,7 @@ public class Cancellation {
     }
     @Override
 	public String toString() {
-		return "User [id=" + id + ", createdAt=" + createdAt.toString() + ", booking=" + booking.toString() +"]";
+		return "User [id=" + idCancelation + ", createdAt=" + createdAt.toString() + ", booking=" + booking.toString() +"]";
 	}   
 
 }

@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html xmlns = "http://www.w3.org/1999/xhtml" 
+   xmlns:th = "http://www.thymeleaf.org" 
+   xmlns:sec = "http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+	<title>Reservas</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title></title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+	<form th:action="@{/bookingConfirm}" method="post" th:object="${booking}" enctype="multipart/form-data">
+	<h1>Detalle de reserva</h1>
+
+	<table class="table table-sm">
+		<tr>
+			<td>
+				      <input hidden name="idRoom" th:attr="value = ${idRoom}" type="text" readonly/>
+				Desde <input class="form-control" name="from" th:attr="value = ${from}" type="text" readonly/>
+			</td>
+		</tr>
+	
+		<tr>
+			<td>
+				Hasta <input class="form-control" name="to" th:attr="value = ${to}" type="text" readonly/>
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				Habitacion <input class="form-control" name="name" th:attr="value = ${name}" type="text" readonly/>
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				Costo total <input class="form-control" name="cost" th:attr="value = ${cost}" type="text" readonly/>
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				Capacidad <input class="form-control" name="occupancy" th:attr="value = ${occupancy}" type="text" readonly/>
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				Comodidades <input class="form-control" name="facilities" th:attr="value = ${facilities}" type="text" readonly/>
+			</td>
+		</tr>
+	</table>	
+			<button type="submit" class="btn btn-success">Confirmar reserva</button>
+			<button type="button" class="btn btn-primary" th:onclick="|window.location.href='/availability'|"> Volver</button>
+	</form>
+	
+	
+</body>
+</html>

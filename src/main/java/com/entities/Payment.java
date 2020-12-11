@@ -1,4 +1,4 @@
-package com.entities;
+package com.poo.tpfinal.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -6,31 +6,54 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.Version;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.JoinColumn;
 import java.util.Date;
 
 @Entity
 public class Payment {
+    @Version
+    private int version;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private long id;
+    @NotNull
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idPayment")
+    private long idPayment;
+    @NotNull
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     @Column(name = "createdAt", nullable = false)
     private Date createdAt;
+    @NotNull
     @OneToOne
-    @JoinColumn(name = "id", updatable = false, nullable = false)
+    @JoinColumn(name = "idBooking", updatable = false, nullable = false)
     private Booking booking;
+    @NotEmpty
     @Column(name = "card", nullable = false)
     private String card;
+    @NotEmpty
     @Column(name = "cardNumber", nullable = false)
     private String cardNumber;
     
+
+    public void setVersionNum(int version){
+		this.version=version;
+	}
+	
+	public int getVersionNum(){
+		 return version; 
+		}
+
     public long getId() {
-        return id;
+        return idPayment;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setId(long idPayment) {
+        this.idPayment = idPayment;
     }
 
     public Date getCreatedAt() {
@@ -67,7 +90,7 @@ public class Payment {
     
     @Override
 	public String toString() {
-		return "User [id=" + id + ", createdAt=" + createdAt.toString() + ", booking=" + booking.toString() + ", card=" +
+		return "User [id=" + idPayment + ", createdAt=" + createdAt.toString() + ", booking=" + booking.toString() + ", card=" +
          card + ", cardNumber=" + cardNumber +"]";
 	}     
 }

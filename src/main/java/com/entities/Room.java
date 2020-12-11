@@ -1,34 +1,51 @@
-package com.entities;
+package com.poo.tpfinal.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Version;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Room {
+    @Version
+    private int version;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private long id;
-    @Column(name = "name", nullable = true, length = 50)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @NotEmpty
+    @Column(name = "idRoom")
+    private long idRoom;
+    @Column(name = "name", nullable = false)
     private String name;
-    @Column(name = "price", nullable = true, length = 10)
+    @NotNull
+    @Column(name = "price", nullable = false)
     private float price;
-    @Column(name = "occupancy", nullable = false, length = 10)
+    @NotNull
+    @Column(name = "occupancy", nullable = false)
     private int occupancy;
-    @Column(name = "availabilty", nullable = false, length = 1)
+    @NotNull
+    @Column(name = "availability", nullable = false)
     private int availability;
-    @Column(name = "facilities", nullable = true, length = 50)
+    @NotEmpty
+    @Column(name = "facilities", nullable = false)
     private String facilities;
     
-    public long getId() {
-        return id;
+    public void setVersionNum(int version){
+		this.version=version;
+	}
+	
+	public int getVersionNum(){
+		 return version; 
+		}
+    public long getIdRoom() {
+        return idRoom;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setIdRoom(long idRoom) {
+        this.idRoom = idRoom;
     }
 
     public String getName() {
@@ -73,9 +90,16 @@ public class Room {
 
     @Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", price=" + price + ", occupancy=" +
+		return "User [idRoom=" + idRoom + ", name=" + name + ", price=" + price + ", occupancy=" +
 		 occupancy + ", availability=" + availability + ", facilities=" + facilities + "]";
-	}   
+	}
 
+    public int getVersion() {
+        return version;
+    }
+
+    public void setVersion(int version) {
+        this.version = version;
+    }
     
 }

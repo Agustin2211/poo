@@ -1,4 +1,6 @@
-package com.entities;
+package com.poo.tpfinal.entities;
+
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,52 +9,73 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-//import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-//import java.util.ArrayList;
-import java.util.Date;
-//import java.util.List;
+import javax.persistence.Version;
+import javax.validation.constraints.NotNull;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Booking {
+    @Version
+    private int version;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private long id;
-    @OneToOne
-    @JoinColumn(name = "id", updatable = false, nullable = false)
+    @NotNull
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idBooking")
+    private long idBooking;
+    @NotNull
+    @ManyToOne
+    @JoinColumn(name = "guest", updatable = false, nullable = false)
     private User guest;
+    @NotNull
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     @Column(name = "checkIn", nullable = false)
     private Date checkIn;
+    @NotNull
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     @Column(name = "checkOut", nullable = false)
     private Date checkOut;
+    @NotNull
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     @Column(name = "createdAt", nullable = false)
     private Date createdAt;
-   @ManyToOne
-   @JoinColumn(name = "id", updatable = false, nullable = false)
-    private Room room;      
+    @NotNull
+    @ManyToOne
+   @JoinColumn(name = "room", updatable = false, nullable = false)
+    private Room room; 
+    @NotNull   
     @Column(name = "breakfastIncluded", nullable = false)
     private boolean breakfastIncluded;
+    @NotNull
     @Column(name = "parking", nullable = false)
     private boolean parking;
+    @NotNull
     @Column(name = "freeCancelation", nullable = false)
     private boolean freeCancelation;
-    @Column(name = "cost", nullable = true)
+    @NotNull
+    @Column(name = "cost", nullable = false)
     private float cost;
     
-    //agregar @Version
+  
     public Booking(){
             super();
           //  listRoom=new ArrayList<Room>();
           }
     
+    public void setVersionNum(int version){
+            this.version=version;
+        }
+        
+     public int getVersionNum(){
+             return version; 
+            }
 
     public long getId() {
-        return id;
+        return idBooking;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setId(long idBooking) {
+        this.idBooking = idBooking;
     }
 
     public User getGuest() {
@@ -129,7 +152,7 @@ public class Booking {
 
     @Override
 	public String toString() {
-		return "User [id=" + id + ", guest=" + guest + ", checkIn=" + checkIn + ", checkOut=" +
+		return "User [id=" + idBooking + ", guest=" + guest + ", checkIn=" + checkIn + ", checkOut=" +
          checkOut + ", createdAt=" + createdAt + ", room=" + room.getName() + ", breackfastIncluded=" + breakfastIncluded + 
          ", parking=" + parking + ", freeCancelation=" + freeCancelation + ", cost=" + cost +"]";
 	}  
