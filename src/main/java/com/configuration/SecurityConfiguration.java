@@ -1,5 +1,5 @@
-package com.poo.tpfinal.configuration;
-import com.poo.tpfinal.services.UserService;
+package com.configuration;
+import com.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

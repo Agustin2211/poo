@@ -1,4 +1,4 @@
-package com.poo.tpfinal.repositories;
+package com.repositories;
 
 import java.util.Date;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import com.poo.tpfinal.entities.Room;
+import com.entities.Room;
 
 public interface RoomRepository extends JpaRepository<Room, Long> {
 

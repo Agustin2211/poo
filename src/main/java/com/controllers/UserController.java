@@ -1,4 +1,4 @@
-package com.poo.tpfinal.controllers;
+package com.controllers;
 
 //import java.util.List;
 import javax.validation.Valid;
@@ -10,8 +10,8 @@ import org.springframework.validation.BindingResult;
 //import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import com.poo.tpfinal.entities.User;
-import com.poo.tpfinal.services.UserService;
+import com.entities.User;
+import com.services.UserService;
 
 @Controller
 

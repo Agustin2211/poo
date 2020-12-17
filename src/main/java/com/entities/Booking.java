@@ -1,4 +1,4 @@
-package com.poo.tpfinal.entities;
+package com.entities;
 
 import java.util.Date;
 

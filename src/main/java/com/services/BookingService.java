@@ -1,4 +1,4 @@
-package com.poo.tpfinal.services;
+package com.services;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import com.poo.tpfinal.entities.Booking;
-import com.poo.tpfinal.repositories.BookingRepository;
+import com.entities.Booking;
+import com.repositories.BookingRepository;
 
 @Service
 public class BookingService {

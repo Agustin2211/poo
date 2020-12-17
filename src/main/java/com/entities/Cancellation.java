@@ -1,4 +1,4 @@
-package com.poo.tpfinal.entities;
+package com.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

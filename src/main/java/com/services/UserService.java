@@ -1,4 +1,4 @@
-package com.poo.tpfinal.services;
+package com.services;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -11,8 +11,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import com.poo.tpfinal.entities.User;
-import com.poo.tpfinal.repositories.UserRepository;
+import com.entities.User;
+import com.repositories.UserRepository;
 
 @Service
 public class UserService implements UserDetailsService {

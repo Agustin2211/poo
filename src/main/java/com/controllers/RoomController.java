@@ -1,4 +1,4 @@
-package com.poo.tpfinal.controllers;
+package com.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,8 +12,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-import com.poo.tpfinal.entities.Room;
-import com.poo.tpfinal.services.RoomService;
+import com.entities.Room;
+import com.services.RoomService;
 
 @Controller
 public class RoomController {

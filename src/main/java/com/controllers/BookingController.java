@@ -1,4 +1,4 @@
-package com.poo.tpfinal.controllers;
+package com.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -14,11 +14,11 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import com.poo.tpfinal.entities.Booking;
-import com.poo.tpfinal.entities.Room;
-import com.poo.tpfinal.entities.User;
-import com.poo.tpfinal.services.BookingService;
-import com.poo.tpfinal.services.RoomService;
+import com.entities.Booking;
+import com.entities.Room;
+import com.entities.User;
+import com.services.BookingService;
+import com.services.RoomService;
 
 @Controller
 public class BookingController {

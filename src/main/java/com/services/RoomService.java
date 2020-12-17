@@ -1,12 +1,12 @@
-package com.poo.tpfinal.services;
+package com.services;
 
 import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.poo.tpfinal.entities.Room;
-import com.poo.tpfinal.repositories.RoomRepository;
+import com.entities.Room;
+import com.repositories.RoomRepository;
 
 @Service
 public class RoomService {
